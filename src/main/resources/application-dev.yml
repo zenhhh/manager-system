@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/manager
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis-plus:
+  type-aliases-package: com.demo.entity
+  mapper-locations: classpath:/dao/*Mapper.xml
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 12345
