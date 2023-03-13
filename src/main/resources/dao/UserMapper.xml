@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.demo.dao.UserMapper">
+    <insert id="saveUser" parameterType="com.demo.entity.UserRedoParam">
+        insert into stack
+            (id,name, age,sex,phone,address,area,action_type)
+        values (#{id},#{name}, #{age},#{sex},#{phone},#{address},#{area},#{actionType});
+    </insert>
+    <select id="loadUser" resultType="com.demo.entity.UserRedoParam">
+        SELECT * FROM `stack`
+        ORDER BY action_time desc
+        Limit 1
+    </select>
+    <delete id="stackDeleteById">
+        delete from stack
+        where id = #{id}
+    </delete>
+    <select id="selectMaxId" resultType="java.lang.Integer">
+        SELECT max(id) FROM `user`
+    </select>
+</mapper>
